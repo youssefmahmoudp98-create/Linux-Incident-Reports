@@ -709,4 +709,3 @@ Security controls must also be operated in a way that preserves the availability
 In this incident, the security policy was doing its job by denying an unauthorized operation, but the repeated enforcement events contributed to a severe availability problem through excessive log growth.
 
 That makes the incident a useful example of how **confidentiality, integrity, and availability cannot always be considered independently during security engineering and troubleshooting.**
-````
