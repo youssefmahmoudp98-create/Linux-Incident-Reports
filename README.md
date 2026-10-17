@@ -9,4 +9,4 @@ This repository documents the methodology for investigating, diagnosing, and res
 
 ## Current Reports
 
-- **[Snap Discord Disk Exhaustion](disk-exhaustion-incident)** — Diagnosed a 31GB `/var/log` exhaustion caused by repeated AppArmor denials from a Snap-confined application.
+- **[Snap Discord Disk Exhaustion](disk-exhaustion-incident.md)** — Diagnosed a 31GB `/var/log` exhaustion caused by repeated AppArmor denials from a Snap-confined application.
