@@ -1,4 +1,3 @@
-````markdown
 ## Disk Exhaustion — Snap Discord
 
 ### Executive Summary
