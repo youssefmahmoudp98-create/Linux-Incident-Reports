@@ -1,7 +1,7 @@
-# Incident Response Writeup: Recurring Chromium Renderer CPU Exhaustion
+# Incident Response Writeup: Recurring Chromium & Electron Renderer CPU Exhaustion
 
 ## Executive Summary
-An investigation was initiated following excessive thermal throttling and loud fan noise on my laptop. Analysis revealed a recurring architectural issue where a single Chromium-based renderer process consumed ~100% of a CPU core. The first incident involved a Google Chrome tab (PID 345007, 1.4GB RAM) rendering Instagram. The second incident involved the ChatGPT Desktop App (PID 83148, 4.2GB RAM), an Electron application built on Chromium. 
+An investigation was initiated following excessive thermal throttling and loud fan noise on my laptop. Analysis revealed a recurring architectural issue where a single renderer process consumed ~100% of a CPU core. The first incident involved a Google Chrome tab (PID 345007, 1.4GB RAM) rendering Instagram, which utilizes the Chromium engine. The second incident involved the ChatGPT Desktop App (PID 83148, 4.2GB RAM), an Electron application which packages the Chromium engine.
 
 Through systematic triage using native Linux tools, the root cause was traced to a userspace busy-wait loop (futex spinlock) and aggressive network polling (epoll_wait). The issue was resolved surgically via process termination without rebooting the OS or crashing the parent application.
 
@@ -83,7 +83,7 @@ Because the processes were isolated, terminating these specific PIDs closed only
 ## Visuals
 
 ### Incident 1: Instagram (PID 345007)
-![Visual 1 - Instagram Thread Distribution](./images/instagram-top-threads.png)
+![Visual 1 - Instagram Thread Distribution](./images/instagram-top-output.png)
 
 ![Visual 2 - Instagram Strace Summary](./images/instagram-strace-summary.png)
 
